@@ -1,0 +1,96 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://ui/hud.gd" id="1_rbyyf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_276te"]
+bg_color = Color(0.2, 0.75, 0.4, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_546lt"]
+bg_color = Color(0.85, 0.2, 0.2, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=226048342]
+script = ExtResource("1_rbyyf")
+
+[node name="PlayerLabel" type="Label" parent="." unique_id=1073575478]
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 20.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 18
+text = "Jogador"
+
+[node name="PlayerBar" type="ProgressBar" parent="." unique_id=417707306]
+offset_left = 20.0
+offset_top = 38.0
+offset_right = 280.0
+offset_bottom = 65.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_276te")
+max_value = 5.0
+value = 5.0
+show_percentage = false
+
+[node name="EnemyLabel" type="Label" parent="." unique_id=32837201]
+offset_left = 872.0
+offset_top = 8.0
+offset_right = 872.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 18
+text = "Inimigo"
+
+[node name="EnemyBar" type="ProgressBar" parent="." unique_id=1008064731]
+offset_left = 872.0
+offset_top = 38.0
+offset_right = 1132.0
+offset_bottom = 65.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_546lt")
+max_value = 5.0
+value = 5.0
+show_percentage = false
+
+[node name="Help" type="Label" parent="." unique_id=1410727668]
+offset_left = 330.0
+offset_top = 612.0
+offset_right = 330.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 16
+text = "A/D ou setas: mover   |   Espaço: pular   |   J ou X: atacar"
+horizontal_alignment = 1
+
+[node name="ResultPanel" type="Control" parent="." unique_id=622287019]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Dim" type="ColorRect" parent="ResultPanel" unique_id=1014805960]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.65)
+
+[node name="Box" type="VBoxContainer" parent="ResultPanel" unique_id=465635833]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="ResultLabel" type="Label" parent="ResultPanel/Box" unique_id=802378559]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "VITÓRIA"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="ResultPanel/Box" unique_id=660932994]
+custom_minimum_size = Vector2(260, 48)
+layout_mode = 2
+text = "Reiniciar (R)"
+
+[node name="MenuButton" type="Button" parent="ResultPanel/Box" unique_id=1457428663]
+custom_minimum_size = Vector2(260, 48)
+layout_mode = 2
+text = "Menu inicial"

@@ -1,0 +1,33 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://entities/enemy.gd" id="1_pqhw6"]
+[ext_resource type="Texture2D" path="res://icon.svg" id="2_b4nis"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvc0s"]
+size = Vector2(56, 60)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=280803115]
+collision_layer = 4
+script = ExtResource("1_pqhw6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=71805072]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_b4nis")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1124096610]
+shape = SubResource("RectangleShape2D_uvc0s")
+
+[node name="HealthBar" type="Node2D" parent="." unique_id=1258248305]
+position = Vector2(-30, -48)
+
+[node name="Background" type="ColorRect" parent="HealthBar" unique_id=393252286]
+offset_right = 60.0
+offset_bottom = 6.0
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 1)
+
+[node name="Fill" type="ColorRect" parent="HealthBar" unique_id=2024548267]
+offset_right = 60.0
+offset_bottom = 6.0
+mouse_filter = 2
+color = Color(0.85, 0.2, 0.2, 1)

@@ -1,0 +1,84 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game.gd" id="1_eow3j"]
+[ext_resource type="PackedScene" path="res://entities/player.tscn" id="2_j5wjh"]
+[ext_resource type="Script" path="res://entities/player.gd" id="3_vef74"]
+[ext_resource type="PackedScene" path="res://entities/enemy.tscn" id="4_hve3p"]
+[ext_resource type="Script" path="res://entities/enemy.gd" id="5_mfdv2"]
+[ext_resource type="PackedScene" path="res://ui/hud.tscn" id="6_iotsf"]
+[ext_resource type="Script" path="res://ui/hud.gd" id="7_lc2xo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_215e1"]
+size = Vector2(1152, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sc4i"]
+size = Vector2(220, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80cx4"]
+size = Vector2(40, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8heu"]
+size = Vector2(40, 648)
+
+[node name="Game" type="Node2D" unique_id=785546817]
+script = ExtResource("1_eow3j")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1459387234]
+z_index = -10
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.07, 0.08, 0.11, 1)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=475928056]
+position = Vector2(576, 624)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1515617942]
+shape = SubResource("RectangleShape2D_215e1")
+
+[node name="Visual" type="ColorRect" parent="Floor" unique_id=1980323506]
+offset_left = -576.0
+offset_top = -24.0
+offset_right = 576.0
+offset_bottom = 24.0
+mouse_filter = 2
+color = Color(0.22, 0.25, 0.32, 1)
+
+[node name="Platform" type="StaticBody2D" parent="." unique_id=1243236200]
+position = Vector2(800, 510)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=796051876]
+shape = SubResource("RectangleShape2D_7sc4i")
+
+[node name="Visual" type="ColorRect" parent="Platform" unique_id=331702793]
+offset_left = -110.0
+offset_top = -10.0
+offset_right = 110.0
+offset_bottom = 10.0
+mouse_filter = 2
+color = Color(0.32, 0.36, 0.45, 1)
+
+[node name="WallLeft" type="StaticBody2D" parent="." unique_id=791751856]
+position = Vector2(-20, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft" unique_id=515843692]
+shape = SubResource("RectangleShape2D_80cx4")
+
+[node name="WallRight" type="StaticBody2D" parent="." unique_id=1640789598]
+position = Vector2(1172, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" unique_id=2053629067]
+shape = SubResource("RectangleShape2D_e8heu")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=333437678 instance=ExtResource("2_j5wjh")]
+position = Vector2(150, 568)
+collision_layer = 2
+script = ExtResource("3_vef74")
+
+[node name="Enemy" type="CharacterBody2D" parent="." unique_id=280803115 instance=ExtResource("4_hve3p")]
+position = Vector2(900, 568)
+collision_layer = 4
+script = ExtResource("5_mfdv2")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=226048342 instance=ExtResource("6_iotsf")]
+script = ExtResource("7_lc2xo")

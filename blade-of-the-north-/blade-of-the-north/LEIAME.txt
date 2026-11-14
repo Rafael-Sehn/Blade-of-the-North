@@ -1,0 +1,15 @@
+BLADE OF THE NORTH - protótipo (Godot 4.7, GDScript)
+
+Como abrir: Godot > Importar > selecione project.godot > F5.
+
+Controles: A/D ou setas = mover | Espaço, W ou seta cima = pular | J ou X = atacar | R = reiniciar (fim de partida)
+
+Estrutura:
+  ui/menu.tscn        tela inicial (RF01)
+  game.tscn           cena da partida: chão, plataforma, jogador, inimigo, interface
+  entities/player     movimento, salto, ataque, vida (RF02-RF05, RF07, RF09)
+  entities/enemy      inimigo: parado / perseguir / atacar (RF06, RF08)
+  ui/hud              barras de vida e tela de vitória/derrota (RF05, RF08-RF10)
+  tools/test_game.gd  teste automático (rodar: godot --headless --path . --script res://tools/test_game.gd)
+
+Valores fáceis de ajustar ficam no topo de player.gd e enemy.gd (velocidade, dano, recarga, raio de detecção).
